@@ -39,6 +39,22 @@
                 </div>
             @enderror
         </div>
+        <div class="mb-3">
+            <label for="type_id" class="form-label">Seleziona il Tipo</label>
+            <select class="form-select" id="type_id" name="type_id" @error('content') is-invalid @enderror>
+
+                <option value="" @selected(old('type_id', $project->type_id) == '')>Nessun Tipo</option>
+                @foreach ($types as $type)
+                    <option @selected(old('type_id', $project->type_id) == $type->id) value="{{ $type->id }}">{{ $type->name }}</option>
+                @endforeach
+
+            </select>
+            @error('type_id')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+        </div>
 
         <button type="submit" class="btn btn-primary">Salva</button>
     </form>

@@ -40,11 +40,11 @@
 
         <div class="mb-3">
             <label for="type_id" class="form-label">Seleziona il Tipo</label>
-            <select class="form-select" id="type_id" name="type_id">
+            <select class="form-select" id="type_id" name="type_id" @error('content') is-invalid @enderror>
 
-                <option value="">Nessun Tipo</option>
+                <option value="" @selected(old('type_id') == '')>Nessun Tipo</option>
                 @foreach ($types as $type)
-                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                    <option @selected(old('type_id') == $type->id) value="{{ $type->id }}">{{ $type->name }}</option>
                 @endforeach
 
             </select>

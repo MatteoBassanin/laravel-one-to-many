@@ -13,7 +13,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Titolo</th>
-                <th scope="col">Categoria</th>
+                <th scope="col">Tipo</th>
                 <th scope="col">Slug</th>
                 <th scope="col">Azioni</th>
             </tr>
@@ -23,7 +23,7 @@
                 <tr>
                     <th>{{ $project->id }}</th>
                     <td>{{ $project->title }}</td>
-                    <td>{{ $project->category }}</td>
+                    <td>{{ $project->type ? $project->type->name : 'Nessun tipo' }}</td>
                     <td>{{ $project->slug }}</td>
                     <td>
                         <a class="btn btn-primary"href="{{ route('admin.projects.show', ['project' => $project->slug]) }}">

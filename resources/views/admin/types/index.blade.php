@@ -13,6 +13,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
+                <th scope="col">Numero progetti</th>
                 <th scope="col">Azioni</th>
             </tr>
         </thead>
@@ -21,7 +22,7 @@
                 <tr>
                     <th>{{ $type->id }}</th>
                     <td>{{ $type->name }}</td>
-
+                    <td>{{ count($type->projects) }}</td>
                     <td>
                         <a class="btn btn-primary"href="{{ route('admin.types.show', ['type' => $type->slug]) }}">
                             Mostra
